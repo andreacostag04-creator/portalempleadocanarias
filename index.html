@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal del Empleado — Canarias Paradise Resort</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ============================================================
+       PANTALLA DE LOGIN
+  ============================================================ -->
+  <div id="login-screen">
+    <div class="login-container">
+      <div class="login-brand">
+        <span class="login-brand-name">Canarias Paradise Resort</span>
+        <span class="login-brand-sub">Portal del Empleado</span>
+      </div>
+      <h1 class="login-heading">Acceso corporativo</h1>
+      <p class="login-description">
+        Introduce tus credenciales para acceder al portal interno.
+      </p>
+      <div class="form-field">
+        <label for="inp-email">Correo corporativo</label>
+        <input
+          type="email"
+          id="inp-email"
+          placeholder="nombre@canariasparadise.es"
+          autocomplete="username"
+        />
+      </div>
+      <div class="form-field">
+        <label for="inp-pass">Contraseña</label>
+        <input
+          type="password"
+          id="inp-pass"
+          placeholder="••••••••"
+          autocomplete="current-password"
+        />
+      </div>
+      <p class="login-hint">Modo demostración: cualquier correo y contraseña válidos dan acceso.</p>
+      <button class="btn-primary btn-block" onclick="doLogin()">Iniciar sesión</button>
+      <a href="#" class="login-forgot-link">¿Has olvidado tu contraseña?</a>
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       PORTAL PRINCIPAL
+  ============================================================ -->
+  <div id="portal" class="is-hidden">
+
+    <!-- HEADER FIJO -->
+    <header class="site-header">
+      <div class="header-inner">
+
+        <!-- Logo -->
+        <div class="header-logo" onclick="goSection('inicio')">
+          <span class="logo-name">Canarias Paradise Resort</span>
+          <span class="logo-tagline">Portal del Empleado</span>
+        </div>
+
+        <!-- Navegación principal -->
+        <nav class="main-nav" id="main-nav">
+          <a href="#" class="nav-item active" data-section="inicio"
+             onclick="goSection('inicio'); return false;">Inicio</a>
+          <a href="#" class="nav-item" data-section="documentacion"
+             onclick="goSection('documentacion'); return false;">Documentación y Normativa</a>
+          <a href="#" class="nav-item" data-section="gestion"
+             onclick="goSection('gestion'); return false;">Gestión del Empleo</a>
+          <a href="#" class="nav-item" data-section="formacion"
+             onclick="goSection('formacion'); return false;">Formación y Desarrollo</a>
+          <a href="#" class="nav-item" data-section="comunicacion"
+             onclick="goSection('comunicacion'); return false;">Comunicación Interna</a>
+          <a href="#" class="nav-item" data-section="bienestar"
+             onclick="goSection('bienestar'); return false;">Salud y Bienestar</a>
+        </nav>
+
+        <!-- Acciones del header -->
+        <div class="header-actions">
+          <span class="header-user">María García</span>
+          <button class="btn-logout" onclick="doLogout()">Salir</button>
+          <button class="nav-toggle" id="nav-toggle" onclick="toggleMobileNav()"
+                  aria-label="Abrir menú">&#9776;</button>
+        </div>
+
+      </div>
+    </header>
+
+
+    <!-- ========================================================
+         SECCIÓN: INICIO
+    ======================================================== -->
+    <section id="s-inicio" class="page-section active">
+
+      <!-- Hero -->
+      <div class="hero">
+        <div class="hero-image-wrap">
+          <img
+            src="images/hero-home.jpg"
+            alt="Vista del resort Canarias Paradise"
+            class="hero-img"
+            onerror="this.parentElement.classList.add('hero-fallback')"
+          />
+        </div>
+        <div class="hero-overlay">
+          <div class="hero-content">
+            <p class="hero-label">Bienvenido al portal interno</p>
+            <h1 class="hero-title">Canarias Paradise Resort</h1>
+            <p class="hero-sub">
+              Tu espacio centralizado de información laboral, formativa y organizativa.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-inner">
+
+        <!-- Mensaje de la dirección -->
+        <div class="section-block">
+          <div class="content-grid col-2">
+            <div>
+              <span class="eyebrow">Mensaje de la Dirección</span>
+              <h2 class="heading-section">Un portal pensado para nuestro equipo</h2>
+              <p>
+                Este portal nace como respuesta a la necesidad de centralizar la información
+                que cada persona del resort necesita en su día a día. Desde el acceso a la
+                documentación laboral hasta la gestión de formación o la comunicación interna,
+                queremos que este espacio sea una herramienta útil, clara y accesible para todos.
+              </p>
+              <p>
+                Canarias Paradise Resort es el resultado del trabajo de más de doscientas personas
+                comprometidas con un servicio de calidad. Este portal es una inversión en vuestra
+                comodidad y en la transparencia de nuestra organización.
+              </p>
+              <p class="text-signature">— Dirección General, Canarias Paradise Resort</p>
+            </div>
+            <div class="img-block">
+              <img
+                src="images/equipo-hotel.jpg"
+                alt="Equipo del resort"
+                onerror="this.style.display='none'"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Accesos rápidos -->
+        <div class="section-block bg-light">
+          <span class="eyebrow">Accesos directos</span>
+          <h2 class="heading-section">Documentos más consultados</h2>
+          <div class="quick-grid">
+            <a href="docs/calendario-laboral-2026.html" target="_blank" class="quick-card">
+              <span class="qc-label">Calendario laboral 2026</span>
+              <span class="qc-action">Consultar</span>
+            </a>
+            <a href="docs/manual-prl.html" target="_blank" class="quick-card">
+              <span class="qc-label">Manual de PRL</span>
+              <span class="qc-action">Consultar</span>
+            </a>
+            <a href="docs/plan-formacion-anual-2026.html" target="_blank" class="quick-card">
+              <span class="qc-label">Plan de formación 2026</span>
+              <span class="qc-action">Consultar</span>
+            </a>
+            <a href="docs/encuesta-clima-laboral.html" target="_blank" class="quick-card">
+              <span class="qc-label">Encuesta de clima laboral</span>
+              <span class="qc-action">Acceder</span>
+            </a>
+            <a href="docs/politica-igualdad.html" target="_blank" class="quick-card">
+              <span class="qc-label">Política de igualdad</span>
+              <span class="qc-action">Consultar</span>
+            </a>
+            <a href="docs/protocolo-gestion-conflictos.html" target="_blank" class="quick-card">
+              <span class="qc-label">Protocolo de conflictos</span>
+              <span class="qc-action">Consultar</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Noticias destacadas -->
+        <div class="section-block">
+          <span class="eyebrow">Actualidad</span>
+          <h2 class="heading-section">Noticias del resort</h2>
+          <div class="news-grid">
+            <article class="news-item">
+              <div class="news-meta">
+                <span class="news-tag">Sostenibilidad</span>
+                <time class="news-date">3 oct 2025</time>
+              </div>
+              <h3 class="news-title">
+                Nuevo programa de sostenibilidad en el hotel de Tenerife
+              </h3>
+              <p class="news-body">
+                El resort ha puesto en marcha un conjunto de medidas para reducir el consumo
+                energético y la generación de residuos, con formación obligatoria para todos
+                los departamentos operativos.
+              </p>
+              <span class="news-author">Laura Hernández — Recursos Humanos</span>
+            </article>
+
+            <article class="news-item">
+              <div class="news-meta">
+                <span class="news-tag">Operaciones</span>
+                <time class="news-date">1 abr 2026</time>
+              </div>
+              <h3 class="news-title">
+                Publicada la planificación de plantilla para temporada alta 2026
+              </h3>
+              <p class="news-body">
+                Los documentos de asignación de turnos y refuerzos están disponibles en la
+                sección de Gestión del Empleo. Los responsables de departamento deben
+                confirmar la asignación antes del 20 de abril.
+              </p>
+              <span class="news-author">Departamento de Operaciones</span>
+            </article>
+
+            <article class="news-item">
+              <div class="news-meta">
+                <span class="news-tag">Formación</span>
+                <time class="news-date">15 ene 2026</time>
+              </div>
+              <h3 class="news-title">
+                Catálogo de formación 2026: inscripciones abiertas hasta el 30 de abril
+              </h3>
+              <p class="news-body">
+                El plan formativo incluye módulos de idiomas, liderazgo y atención al cliente.
+                Consulta el catálogo completo en la sección de Formación y Desarrollo.
+              </p>
+              <span class="news-author">Departamento de RRHH</span>
+            </article>
+          </div>
+        </div>
+
+        <!-- Calendario de eventos -->
+        <div class="section-block bg-light">
+          <span class="eyebrow">Agenda</span>
+          <h2 class="heading-section">Calendario de eventos — Abril 2026</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Fecha</th>
+                  <th>Evento</th>
+                  <th>Departamento</th>
+                  <th>Lugar</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>16 abr</td>
+                  <td>Reunión de coordinación de temporada alta</td>
+                  <td>Operaciones, RRHH</td>
+                  <td>Sala de reuniones A</td>
+                </tr>
+                <tr>
+                  <td>22 abr</td>
+                  <td>Formación en primeros auxilios — Grupo 1</td>
+                  <td>Todos los departamentos</td>
+                  <td>Sala de formación B</td>
+                </tr>
+                <tr>
+                  <td>24 abr</td>
+                  <td>Actividad de integración de equipos</td>
+                  <td>Todos los departamentos</td>
+                  <td>Playa de Las Canteras</td>
+                </tr>
+                <tr>
+                  <td>29 abr</td>
+                  <td>Cierre de inscripciones — Plan formativo 2026</td>
+                  <td>RRHH</td>
+                  <td>Portal interno</td>
+                </tr>
+                <tr>
+                  <td>30 abr</td>
+                  <td>Apertura de la encuesta de clima laboral</td>
+                  <td>RRHH</td>
+                  <td>Portal interno</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div><!-- /page-inner -->
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÓN: DOCUMENTACIÓN Y NORMATIVA
+    ======================================================== -->
+    <section id="s-documentacion" class="page-section">
+      <div class="section-hero-sm">
+        <h1>Documentación y Normativa</h1>
+        <p>Documentos obligatorios y normativos disponibles para toda la plantilla conforme a la legislación vigente.</p>
+      </div>
+      <div class="page-inner">
+
+        <div class="doc-list">
+
+          <div class="doc-row">
+            <div class="doc-row-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div class="doc-row-info">
+              <h3>Calendario laboral 2026</h3>
+              <p>Festivos nacionales, insulares y de empresa. Períodos de vacaciones colectivas, campañas y planificación anual. Incluye opción de sincronización con el calendario corporativo.</p>
+              <span class="doc-update">Actualización: enero 2026</span>
+            </div>
+            <div class="doc-row-actions">
+              <a href="docs/calendario-laboral-2026.html" target="_blank" class="btn-doc">Ver documento</a>
+              <a href="docs/calendario-laboral-2026.html" download class="btn-doc-secondary">Descargar</a>
+            </div>
+          </div>
+
+          <div class="doc-row">
+            <div class="doc-row-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div class="doc-row-info">
+              <h3>Convenio colectivo aplicable</h3>
+              <p>Texto oficial del convenio colectivo del sector hotelero de Canarias publicado en el BOE. Incluye las condiciones laborales, retributivas y de jornada aplicables al personal del resort.</p>
+              <span class="doc-update">Referencia: BOE — Sector hotelero Canarias</span>
+            </div>
+            <div class="doc-row-actions">
+              <a href="https://www.boe.es" target="_blank" rel="noopener" class="btn-doc">Consultar en el BOE</a>
+            </div>
+          </div>
+
+          <div class="doc-row">
+            <div class="doc-row-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="doc-row-info">
+              <h3>Manual de Prevención de Riesgos Laborales</h3>
+              <p>Normas generales de seguridad, riesgos específicos del entorno hotelero, uso de EPIs, protocolo de emergencias y responsabilidades de empleados y empresa.</p>
+              <span class="doc-update">Actualización: anual</span>
+            </div>
+            <div class="doc-row-actions">
+              <a href="docs/manual-prl.html" target="_blank" class="btn-doc">Ver documento</a>
+              <a href="docs/manual-prl.html" download class="btn-doc-secondary">Descargar</a>
+            </div>
+          </div>
+
+          <div class="doc-row">
+            <div class="doc-row-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="doc-row-info">
+              <h3>Política de igualdad</h3>
+              <p>Compromisos del resort en materia de igualdad de trato, no discriminación, medidas de conciliación y protocolo ante incidencias relacionadas con desigualdad o acoso.</p>
+              <span class="doc-update">Actualización: anual</span>
+            </div>
+            <div class="doc-row-actions">
+              <a href="docs/politica-igualdad.html" target="_blank" class="btn-doc">Ver documento</a>
+              <a href="docs/politica-igualdad.html" download class="btn-doc-secondary">Descargar</a>
+            </div>
+          </div>
+
+          <div class="doc-row">
+            <div class="doc-row-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            </div>
+            <div class="doc-row-info">
+              <h3>Canal de denuncias / Compliance</h3>
+              <p>Formulario anónimo y confidencial para comunicar conductas que incumplan el Código Ético, las políticas internas o la normativa legal. Gestionado de forma independiente por la Dirección.</p>
+              <span class="doc-update">Disponible en todo momento</span>
+            </div>
+            <div class="doc-row-actions">
+              <a href="#" onclick="goSection('bienestar'); return false;" class="btn-doc">Ir al canal</a>
+            </div>
+          </div>
+
+        </div><!-- /doc-list -->
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÓN: GESTIÓN DEL EMPLEO
+    ======================================================== -->
+    <section id="s-gestion" class="page-section">
+      <div class="section-hero-sm">
+        <h1>Gestión del Empleo</h1>
+        <p>Herramientas para la gestión operativa del empleo: vacaciones, nóminas, bajas y planificación.</p>
+      </div>
+      <div class="page-inner">
+
+        <!-- Vacaciones -->
+        <div class="content-block">
+          <h2 class="heading-block">Solicitud de vacaciones y permisos</h2>
+          <div class="two-col">
+            <div>
+              <form id="form-vac" onsubmit="handleVac(event)">
+                <div class="form-row-2">
+                  <div class="form-field">
+                    <label for="vac-tipo">Tipo de solicitud</label>
+                    <select id="vac-tipo">
+                      <option value="">Selecciona</option>
+                      <option>Vacaciones ordinarias</option>
+                      <option>Permiso personal</option>
+                      <option>Permiso de maternidad / paternidad</option>
+                      <option>Baja médica</option>
+                      <option>Asuntos propios</option>
+                    </select>
+                  </div>
+                  <div class="form-field">
+                    <label for="vac-dept">Departamento</label>
+                    <input type="text" id="vac-dept" value="Recursos Humanos" readonly />
+                  </div>
+                </div>
+                <div class="form-row-2">
+                  <div class="form-field">
+                    <label for="vac-inicio">Fecha de inicio</label>
+                    <input type="date" id="vac-inicio" />
+                  </div>
+                  <div class="form-field">
+                    <label for="vac-fin">Fecha de fin</label>
+                    <input type="date" id="vac-fin" />
+                  </div>
+                </div>
+                <div class="form-field">
+                  <label for="vac-nota">Observaciones (opcional)</label>
+                  <textarea id="vac-nota" rows="3" placeholder="Añade cualquier detalle relevante para tu responsable."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Enviar solicitud</button>
+              </form>
+            </div>
+            <div>
+              <h3 class="heading-minor">Historial de solicitudes</h3>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead>
+                    <tr><th>Tipo</th><th>Período</th><th>Días</th><th>Estado</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Vacaciones ordinarias</td>
+                      <td>20 dic 2025 — 3 ene 2026</td>
+                      <td>12</td>
+                      <td><span class="badge badge-ok">Aprobada</span></td>
+                    </tr>
+                    <tr>
+                      <td>Permiso personal</td>
+                      <td>15 oct 2025</td>
+                      <td>1</td>
+                      <td><span class="badge badge-ok">Aprobada</span></td>
+                    </tr>
+                    <tr>
+                      <td>Vacaciones ordinarias</td>
+                      <td>1 — 14 ago 2025</td>
+                      <td>14</td>
+                      <td><span class="badge badge-warn">Pendiente</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nóminas -->
+        <div class="content-block">
+          <h2 class="heading-block">Portal de nóminas</h2>
+          <p class="block-description">
+            Acceso individual protegido a los recibos de salario. Los datos se actualizan
+            automáticamente cada mes a través del sistema ERP corporativo.
+          </p>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Período</th>
+                  <th>Salario bruto</th>
+                  <th>Deducciones</th>
+                  <th>Salario neto</th>
+                  <th>Estado</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Marzo 2026</td><td>2.450,00 €</td><td>486,50 €</td><td>1.963,50 €</td>
+                  <td><span class="badge badge-ok">Disponible</span></td>
+                  <td><button class="btn-table" onclick="showToast('Descargando nómina de marzo 2026...')">Descargar</button></td>
+                </tr>
+                <tr>
+                  <td>Febrero 2026</td><td>2.450,00 €</td><td>486,50 €</td><td>1.963,50 €</td>
+                  <td><span class="badge badge-ok">Disponible</span></td>
+                  <td><button class="btn-table" onclick="showToast('Descargando nómina de febrero 2026...')">Descargar</button></td>
+                </tr>
+                <tr>
+                  <td>Enero 2026</td><td>2.450,00 €</td><td>486,50 €</td><td>1.963,50 €</td>
+                  <td><span class="badge badge-ok">Disponible</span></td>
+                  <td><button class="btn-table" onclick="showToast('Descargando nómina de enero 2026...')">Descargar</button></td>
+                </tr>
+                <tr>
+                  <td>Diciembre 2025</td><td>2.650,00 €</td><td>526,50 €</td><td>2.123,50 €</td>
+                  <td><span class="badge badge-ok">Disponible</span></td>
+                  <td><button class="btn-table" onclick="showToast('Descargando nómina de diciembre 2025...')">Descargar</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Bajas -->
+        <div class="content-block">
+          <h2 class="heading-block">Procedimiento de bajas y sustituciones</h2>
+          <p class="block-description">
+            Consulta el protocolo completo de actuación en caso de baja médica o ausencia
+            no planificada.
+          </p>
+          <a href="docs/procedimiento-bajas-sustituciones.html" target="_blank" class="btn-primary">
+            Ver procedimiento completo
+          </a>
+        </div>
+
+        <!-- Temporada alta -->
+        <div class="content-block">
+          <h2 class="heading-block">Planificación de temporada alta 2026</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Mes</th><th>Absentismo</th><th>Campañas</th>
+                  <th>Vacaciones</th><th>Refuerzo</th><th>Plantilla total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Enero</td><td>2</td><td>0</td><td>4</td><td>6</td><td>54</td></tr>
+                <tr><td>Febrero</td><td>3</td><td>6</td><td>0</td><td>9</td><td>57</td></tr>
+                <tr><td>Marzo</td><td>2</td><td>0</td><td>0</td><td>2</td><td>50</td></tr>
+                <tr><td>Abril</td><td>2</td><td>14</td><td>0</td><td>16</td><td>64</td></tr>
+                <tr><td>Mayo</td><td>2</td><td>8</td><td>0</td><td>10</td><td>58</td></tr>
+                <tr><td>Junio</td><td>2</td><td>22</td><td>0</td><td>24</td><td>72</td></tr>
+                <tr><td>Julio</td><td>4</td><td>26</td><td>0</td><td>30</td><td>78</td></tr>
+                <tr><td>Agosto</td><td>3</td><td>28</td><td>0</td><td>31</td><td>79</td></tr>
+                <tr><td>Septiembre</td><td>2</td><td>22</td><td>0</td><td>24</td><td>72</td></tr>
+                <tr><td>Octubre</td><td>2</td><td>10</td><td>20</td><td>32</td><td>80</td></tr>
+                <tr><td>Noviembre</td><td>2</td><td>0</td><td>24</td><td>26</td><td>74</td></tr>
+                <tr><td>Diciembre</td><td>4</td><td>4</td><td>0</td><td>8</td><td>56</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÓN: FORMACIÓN Y DESARROLLO
+    ======================================================== -->
+    <section id="s-formacion" class="page-section">
+      <div class="section-hero-sm">
+        <h1>Formación y Desarrollo</h1>
+        <p>Recursos formativos para el crecimiento profesional y la mejora continua del equipo.</p>
+      </div>
+      <div class="page-inner">
+
+        <div class="content-grid col-2 align-center">
+          <div>
+            <span class="eyebrow">Documentación</span>
+            <h2 class="heading-section">Plan de formación anual 2026</h2>
+            <p>
+              El catálogo formativo de 2026 incluye módulos de idiomas, liderazgo, atención al
+              cliente, onboarding y seguridad alimentaria. Las inscripciones están abiertas hasta
+              el 30 de abril.
+            </p>
+            <a href="docs/plan-formacion-anual-2026.html" target="_blank" class="btn-primary" style="margin-top:16px; display:inline-block;">
+              Ver plan completo
+            </a>
+          </div>
+          <div class="img-block">
+            <img src="images/formacion-idiomas.jpg" alt="Sesión de formación" onerror="this.style.display='none'" />
+          </div>
+        </div>
+
+        <div class="content-block">
+          <h2 class="heading-block">Módulos disponibles</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr><th>Módulo</th><th>Área</th><th>Duración</th><th>Modalidad</th><th>Estado</th><th></th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Inglés — Nivel B2</td><td>Idiomas</td><td>40 h</td><td>En línea</td>
+                  <td><span class="badge badge-ok">Disponible</span></td>
+                  <td><button class="btn-table" onclick="showToast('Redirigiendo a la plataforma de idiomas...')">Acceder</button></td>
+                </tr>
+                <tr>
+                  <td>Alemán — Nivel A2</td><td>Idiomas</td><td>30 h</td><td>En línea</td>
+                  <td><span class="badge badge-ok">Disponible</span></td>
+                  <td><button class="btn-table" onclick="showToast('Redirigiendo a la plataforma de idiomas...')">Acceder</button></td>
+                </tr>
+                <tr>
+                  <td>Liderazgo situacional</td><td>Liderazgo</td><td>16 h</td><td>Presencial</td>
+                  <td><span class="badge badge-warn">En progreso</span></td>
+                  <td><button class="btn-table" onclick="showToast('Abriendo módulo de liderazgo...')">Continuar</button></td>
+                </tr>
+                <tr>
+                  <td>Atención al cliente premium</td><td>Servicio</td><td>8 h</td><td>Mixta</td>
+                  <td><span class="badge badge-neutral">Pendiente</span></td>
+                  <td><button class="btn-table" onclick="showToast('Este módulo aún no está activo.')">Ver detalles</button></td>
+                </tr>
+                <tr>
+                  <td>Onboarding digital</td><td>Incorporación</td><td>4 h</td><td>En línea</td>
+                  <td><span class="badge badge-done">Completado</span></td>
+                  <td><button class="btn-table" onclick="showToast('Descargando certificado de onboarding...')">Certificado</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Inscripción -->
+        <div class="content-block">
+          <h2 class="heading-block">Inscripción a un curso</h2>
+          <form id="form-curso" onsubmit="handleCurso(event)" style="max-width:580px;">
+            <div class="form-row-2">
+              <div class="form-field">
+                <label for="cur-nombre">Curso</label>
+                <select id="cur-nombre">
+                  <option value="">Selecciona un curso</option>
+                  <option>Inglés — Nivel B2</option>
+                  <option>Alemán — Nivel A2</option>
+                  <option>Francés — Nivel A1</option>
+                  <option>Liderazgo situacional</option>
+                  <option>Atención al cliente premium</option>
+                  <option>Seguridad alimentaria (APPCC)</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="cur-turno">Horario preferido</label>
+                <select id="cur-turno">
+                  <option value="">Selecciona</option>
+                  <option>Mañana (9:00 — 11:00)</option>
+                  <option>Tarde (18:00 — 20:00)</option>
+                  <option>En línea (sin horario fijo)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="cur-comentario">Comentarios adicionales</label>
+              <textarea id="cur-comentario" rows="2" placeholder="Opcional"></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Enviar inscripción</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÓN: COMUNICACIÓN INTERNA
+    ======================================================== -->
+    <section id="s-comunicacion" class="page-section">
+      <div class="section-hero-sm">
+        <h1>Comunicación Interna</h1>
+        <p>Noticias, reconocimientos, nuevas incorporaciones y eventos del equipo.</p>
+      </div>
+      <div class="page-inner">
+
+        <div class="content-grid col-2 align-center" style="margin-bottom:48px;">
+          <div class="img-block">
+            <img src="images/comunicacion-interna.jpg" alt="Comunicación interna" onerror="this.style.display='none'" />
+          </div>
+          <div>
+            <span class="eyebrow">Reconocimiento del mes</span>
+            <h2 class="heading-section">Carlos Pérez — Recepción</h2>
+            <p>
+              Carlos ha destacado durante la Semana Santa de 2026 por su gestión eficiente de
+              incidencias y su atención constante al cliente en momentos de alta ocupación. Su
+              trabajo contribuyó directamente a mantener la valoración del resort en las
+              principales plataformas de reserva.
+            </p>
+            <span class="text-meta">Reconocimiento de marzo 2026 — Departamento de RRHH</span>
+          </div>
+        </div>
+
+        <!-- Nuevas incorporaciones -->
+        <div class="content-block">
+          <h2 class="heading-block">Nuevas incorporaciones</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr><th>Nombre</th><th>Puesto</th><th>Departamento</th><th>Incorporación</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ana Torres</td>
+                  <td>Responsable de Alimentos y Bebidas</td>
+                  <td>F&amp;B — Gran Canaria</td>
+                  <td>12 abr 2026</td>
+                </tr>
+                <tr>
+                  <td>Jonás Medina</td>
+                  <td>Técnico de mantenimiento</td>
+                  <td>Mantenimiento — Tenerife</td>
+                  <td>7 abr 2026</td>
+                </tr>
+                <tr>
+                  <td>Lucía Santana</td>
+                  <td>Recepcionista</td>
+                  <td>Recepción — Gran Canaria</td>
+                  <td>1 abr 2026</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Noticias internas -->
+        <div class="content-block">
+          <h2 class="heading-block">Noticias internas</h2>
+          <div class="news-grid">
+            <article class="news-item">
+              <div class="news-meta">
+                <span class="news-tag">Sostenibilidad</span>
+                <time class="news-date">3 oct 2025</time>
+              </div>
+              <h3 class="news-title">Inauguramos el programa de sostenibilidad en Tenerife</h3>
+              <p class="news-body">El resort ha lanzado medidas de eficiencia energética y gestión de residuos con formación obligatoria para los departamentos operativos.</p>
+              <span class="news-author">Laura Hernández — RRHH</span>
+            </article>
+            <article class="news-item">
+              <div class="news-meta">
+                <span class="news-tag">Equipo</span>
+                <time class="news-date">24 abr 2026</time>
+              </div>
+              <h3 class="news-title">Jornada de integración de equipos — 24 de abril</h3>
+              <p class="news-body">Actividad voluntaria para todos los departamentos. Inscripción abierta hasta el 18 de abril a través del formulario del portal.</p>
+              <span class="news-author">Departamento de Comunicación</span>
+            </article>
+            <article class="news-item">
+              <div class="news-meta">
+                <span class="news-tag">Operaciones</span>
+                <time class="news-date">1 abr 2026</time>
+              </div>
+              <h3 class="news-title">Confirmada la distribución de turnos para temporada alta</h3>
+              <p class="news-body">Los responsables de departamento han recibido la asignación de turnos. Los empleados pueden consultarla en la sección de Gestión del Empleo.</p>
+              <span class="news-author">Departamento de Operaciones</span>
+            </article>
+          </div>
+        </div>
+
+        <!-- Eventos -->
+        <div class="content-block">
+          <h2 class="heading-block">Próximos eventos internos</h2>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr><th>Fecha</th><th>Evento</th><th>Lugar</th><th>Inscripción</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>22 abr</td>
+                  <td>Formación en primeros auxilios — Grupo 1</td>
+                  <td>Sala de formación B</td>
+                  <td><button class="btn-table" onclick="showToast('Inscripción registrada correctamente.')">Apuntarme</button></td>
+                </tr>
+                <tr>
+                  <td>24 abr</td>
+                  <td>Integración de equipos — Playa de Las Canteras</td>
+                  <td>Exterior</td>
+                  <td><button class="btn-table" onclick="showToast('Inscripción registrada correctamente.')">Apuntarme</button></td>
+                </tr>
+                <tr>
+                  <td>30 abr</td>
+                  <td>Apertura encuesta de clima laboral</td>
+                  <td>Portal interno</td>
+                  <td><a href="docs/encuesta-clima-laboral.html" target="_blank" class="btn-table">Acceder</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECCIÓN: SALUD Y BIENESTAR
+    ======================================================== -->
+    <section id="s-bienestar" class="page-section">
+      <div class="section-hero-sm">
+        <h1>Salud y Bienestar</h1>
+        <p>Recursos para el cuidado del bienestar físico y emocional del equipo.</p>
+      </div>
+      <div class="page-inner">
+
+        <div class="content-grid col-2 align-center" style="margin-bottom:48px;">
+          <div>
+            <span class="eyebrow">Bienestar organizacional</span>
+            <h2 class="heading-section">Un entorno laboral saludable</h2>
+            <p>
+              Canarias Paradise Resort ha detectado indicadores de aumento del estrés organizativo
+              y ha incorporado un bloque de recursos específicos para dar respuesta a esta realidad.
+              El bienestar del equipo es parte de la estrategia del resort, no un complemento opcional.
+            </p>
+          </div>
+          <div class="img-block">
+            <img src="images/bienestar-empleados.jpg" alt="Bienestar de empleados" onerror="this.style.display='none'" />
+          </div>
+        </div>
+
+        <div class="doc-list">
+
+          <div class="doc-row">
+            <div class="doc-row-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <div class="doc-row-info">
+              <h3>Encuesta de clima laboral</h3>
+              <p>Formulario anónimo con escala Likert y preguntas abiertas. Los resultados se analizan de forma agregada y se publican en el portal.</p>
+              <span class="doc-update">Apertura: 30 de abril 2026 — Anual</span>
+            </div>
+            <div class="doc-row-actions">
+              <a href="docs/encuesta-clima-laboral.html" target="_blank" class="btn-doc">Acceder a la encuesta</a>
+            </div>
+          </div>
+
+          <div class="doc-row">
+            <div class="doc-row-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="doc-row-info">
+              <h3>Programa de manejo del estrés</h3>
+              <p>Calendario de talleres presenciales, guías de autocuidado descargables y recursos de mindfulness adaptados al entorno hotelero.</p>
+              <span class="doc-update">Actualización: trimestral</span>
+            </div>
+            <div class="doc-row-actions">
+              <button class="btn-doc" onclick="showToast('Abriendo programa de manejo del estrés...')">Ver programa</button>
+            </div>
+          </div>
+
+          <div class="doc-row">
+            <div class="doc-row-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21.73 16.92z"/></svg>
+            </div>
+            <div class="doc-row-info">
+              <h3>Recursos psicológicos externos</h3>
+              <p>Acceso confidencial a un servicio de orientación psicológica externo, sin registro en el expediente personal.</p>
+              <span class="doc-update">Teléfono de contacto: 613 212 495 — Gratuito para empleados</span>
+            </div>
+            <div class="doc-row-actions">
+              <button class="btn-doc" onclick="showToast('Abriendo formulario de cita confidencial...')">Solicitar cita</button>
+            </div>
+          </div>
+
+          <div class="doc-row">
+            <div class="doc-row-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            </div>
+            <div class="doc-row-info">
+              <h3>Protocolo de gestión de conflictos</h3>
+              <p>Proceso formal con mediación interna, plazos garantizados de respuesta y confidencialidad para todas las partes.</p>
+              <span class="doc-update">Tiempo máximo de respuesta: 5 días hábiles</span>
+            </div>
+            <div class="doc-row-actions">
+              <a href="docs/protocolo-gestion-conflictos.html" target="_blank" class="btn-doc">Ver protocolo</a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Canal de denuncias -->
+        <div class="content-block" style="margin-top:40px;">
+          <h2 class="heading-block">Canal de denuncias / Compliance</h2>
+          <p class="block-description">
+            Canal confidencial y anónimo para comunicar conductas contrarias al Código Ético,
+            las políticas internas o la legislación vigente. Las comunicaciones son gestionadas
+            de forma independiente por la Dirección.
+          </p>
+          <form id="form-denuncia" onsubmit="handleDenuncia(event)" style="max-width:620px; margin-top:24px;">
+            <div class="form-row-2">
+              <div class="form-field">
+                <label for="den-dept">Departamento relacionado (opcional)</label>
+                <select id="den-dept">
+                  <option value="">Prefiero no indicarlo</option>
+                  <option>Recepción</option><option>Alimentos y bebidas</option>
+                  <option>Mantenimiento</option><option>Limpieza</option>
+                  <option>Recursos humanos</option><option>Comunicación</option>
+                  <option>Administración</option><option>IT</option><option>Dirección</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="den-tipo">Tipo de conducta <span class="req">*</span></label>
+                <select id="den-tipo">
+                  <option value="">Selecciona una categoría</option>
+                  <option>Acoso laboral</option>
+                  <option>Acoso sexual o por razón de género</option>
+                  <option>Discriminación</option>
+                  <option>Fraude o irregularidad económica</option>
+                  <option>Incumplimiento de normativa de seguridad</option>
+                  <option>Conflicto de intereses</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-field">
+              <label for="den-texto">Descripción de los hechos <span class="req">*</span></label>
+              <textarea id="den-texto" rows="5" placeholder="Describe la situación con el mayor detalle posible. Tu identidad no será revelada."></textarea>
+            </div>
+            <div class="form-field">
+              <label for="den-email">Correo electrónico (opcional — solo para seguimiento)</label>
+              <input type="email" id="den-email" placeholder="correo@ejemplo.com" />
+            </div>
+            <p class="form-note">
+              Plazo máximo de respuesta: 10 días hábiles. La información proporcionada es tratada con
+              estricta confidencialidad.
+            </p>
+            <button type="submit" class="btn-primary">Enviar comunicación</button>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span class="footer-brand">Canarias Paradise Resort</span>
+        <span class="footer-info">Portal del Empleado &mdash; Uso interno. Documento confidencial.</span>
+        <span class="footer-copy">&copy; 2026</span>
+      </div>
+    </footer>
+
+  </div><!-- /portal -->
+
+  <!-- Toast de notificación -->
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

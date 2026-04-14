@@ -1,0 +1,94 @@
+=====================================================================
+CANARIAS PARADISE RESORT — Portal del Empleado
+ENLACES EXTERNOS SUGERIDOS
+=====================================================================
+
+Los siguientes enlaces son referencias externas reales que pueden
+incorporarse al portal para complementar la documentación interna.
+Todos deben abrirse con target="_blank" rel="noopener noreferrer".
+
+---------------------------------------------------------------------
+NORMATIVA Y LEGISLACIÓN
+---------------------------------------------------------------------
+
+1. Boletín Oficial del Estado (BOE) — Convenio Colectivo Hotelero
+   URL: https://www.boe.es
+   Uso: enlace en "Convenio colectivo aplicable" (sección Documentación)
+
+2. Ministerio de Trabajo y Economía Social
+   URL: https://www.mites.gob.es
+   Uso: referencia general para consultas laborales
+
+3. Inspección de Trabajo y Seguridad Social
+   URL: https://www.itss.es
+   Uso: referencia para denuncias ante la administración
+
+4. Seguridad Social — Oficina Virtual
+   URL: https://sede.seg-social.gob.es
+   Uso: consulta de vida laboral, prestaciones, etc.
+
+5. SEPE — Servicio Público de Empleo Estatal
+   URL: https://www.sepe.es
+   Uso: información sobre prestaciones por desempleo
+
+---------------------------------------------------------------------
+PREVENCIÓN DE RIESGOS LABORALES
+---------------------------------------------------------------------
+
+6. Instituto Nacional de Seguridad y Salud en el Trabajo (INSST)
+   URL: https://www.insst.es
+   Uso: guías técnicas y recursos de PRL (referencia en Manual PRL)
+
+7. OSALAN — Instituto Vasco de Seguridad y Salud Laboral
+   URL: https://www.osalan.euskadi.eus
+   Uso: recursos formativos en PRL (referencia complementaria)
+
+---------------------------------------------------------------------
+FORMACIÓN
+---------------------------------------------------------------------
+
+8. Coursera — Hostelería y turismo
+   URL: https://www.coursera.org
+   Uso: plataforma de referencia para formación en idiomas y gestión
+
+9. FUNDAE — Fundación Estatal para la Formación en el Empleo
+   URL: https://www.fundae.es
+   Uso: información sobre formación bonificada para empresas
+
+10. Instituto Canario de Administración Pública (ICAP)
+    URL: https://www.icap.es
+    Uso: formación específica en Canarias
+
+---------------------------------------------------------------------
+BIENESTAR Y RECURSOS PSICOLÓGICOS
+---------------------------------------------------------------------
+
+11. Teléfono de la Esperanza — Apoyo emocional
+    URL: https://www.telefonodelaesperanza.org
+    Uso: recurso externo para empleados en situación de dificultad emocional
+
+12. Ministerio de Sanidad — Salud Mental
+    URL: https://www.sanidad.gob.es/salud/areas/saludMental
+    Uso: recursos informativos sobre salud mental laboral
+
+---------------------------------------------------------------------
+IGUALDAD
+---------------------------------------------------------------------
+
+13. Instituto de la Mujer
+    URL: https://www.inmujeres.gob.es
+    Uso: referencia para la Política de Igualdad
+
+14. Agencia Canaria de Igualdad
+    URL: https://www3.gobiernodecanarias.org/igualdad
+    Uso: referencia autonómica para políticas de igualdad en Canarias
+
+---------------------------------------------------------------------
+NOTA TÉCNICA
+---------------------------------------------------------------------
+Para incorporar estos enlaces al portal:
+- Usa el atributo target="_blank" para abrir en nueva pestaña.
+- Añade rel="noopener noreferrer" por seguridad.
+- Verifica periódicamente que los URLs siguen siendo válidos.
+- No enlaces directamente a PDFs de terceros sin verificar su vigencia.
+=====================================================================
